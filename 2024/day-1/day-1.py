@@ -4,17 +4,20 @@ def read_input() -> list[str]:
         data = f.readlines()
     return data
 
+
 def process(line: str) -> tuple[int, int]:
-  left, right = line.split()
-  return int(left), int(right)
+    left, right = line.split()
+    return int(left), int(right)
+
 
 def calculate(left: list, right: list) -> int:
-  final = 0
-  left = sorted(left)
-  right = sorted(right)
-  for i in range(len(left)):
-      final = final + abs(right[i] - left[i])
-  return final
+    final = 0
+    left = sorted(left)
+    right = sorted(right)
+    for i in range(len(left)):
+        final = final + abs(right[i] - left[i])
+    return final
+
 
 def similarity(number: int, right: list) -> int:
     score = 0
