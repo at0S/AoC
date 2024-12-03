@@ -26,20 +26,31 @@ def validate_set(l: list[int]) -> bool:
     s = set(l)
     return len(l) == len(s)
 
+def ultimate_validator(l: list[int], diff: int) -> bool:
+    return (validate_asc(l) or validate_desc(l)) and validate_diff(l, diff) and validate_set(l)
+
 
 def main():
-    safe = 0
+    result = {
+            "safe":0, "original":0, "dampner":0, "total":0}
     diff = 3
     lines = read_input()
     for line in lines:
+        result["total"] += 1
         l = list(map(int, line.split()))
-        if validate_asc(l) or validate_desc(l):
-            if validate_set(l) and validate_diff(l, diff):
-                safe += 1
+        if ultimate_validator(l, diff):
+            result["safe"] += 1
+            result["original"] += 1
         else:
-            print(f"{l} is not safe, need a further validation!")
+            for i in range(len(l)):
+                popped = l.copy()
+                popped.pop(i)
+                if ultimate_validator(popped, diff):
+                    result["safe"] += 1
+                    result["dampner"] += 1
+                    break
 
-    print(safe)
+    print(f"FINAL RESULT:{result}")
 
 
 if __name__ == "__main__":

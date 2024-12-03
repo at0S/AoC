@@ -5,4 +5,4 @@ test:
 	pytest
 
 run:
-	python day_2.py
+	python day_2.py | tee output
