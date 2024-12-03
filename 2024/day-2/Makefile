@@ -1,5 +1,6 @@
 clean:
 	find . -type d -name "__pycache__" -delete
+	rm output
 
 test:
 	pytest
