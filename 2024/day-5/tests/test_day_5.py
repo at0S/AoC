@@ -2,7 +2,7 @@ import sys
 
 sys.path.insert(0, "/Users/at0S/github.com/AoC/2024/day-5")
 
-from day_5 import get_list_midsection, process_print_order
+from day_5 import get_list_midsection, fix_print_order
 
 
 def test_get_list_midsection_1():
@@ -20,7 +20,7 @@ def test_get_list_midsection_3():
     assert get_list_midsection(["97", "75", "47", "29", "13"]) == 47
 
 
-def test_process_print_order():
+def test_fix_print_order():
     order = {
         "47": ["53", "13", "61", "29"],
         "97": ["13", "61", "47", "29", "53", "75"],
@@ -30,4 +30,4 @@ def test_process_print_order():
         "53": ["29", "13"],
     }
     sequence = ["97", "13", "75", "29", "47"]
-    assert process_print_order(sequence, order) == ["97", "75", "47", "29", "13"]
+    assert fix_print_order(sequence, order) == ["97", "75", "47", "29", "13"]
