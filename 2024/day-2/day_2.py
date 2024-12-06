@@ -26,13 +26,17 @@ def validate_set(l: list[int]) -> bool:
     s = set(l)
     return len(l) == len(s)
 
+
 def ultimate_validator(l: list[int], diff: int) -> bool:
-    return (validate_asc(l) or validate_desc(l)) and validate_diff(l, diff) and validate_set(l)
+    return (
+        (validate_asc(l) or validate_desc(l))
+        and validate_diff(l, diff)
+        and validate_set(l)
+    )
 
 
 def main():
-    result = {
-            "safe":0, "original":0, "dampner":0, "total":0}
+    result = {"safe": 0, "original": 0, "dampner": 0, "total": 0}
     diff = 3
     lines = read_input()
     for line in lines:

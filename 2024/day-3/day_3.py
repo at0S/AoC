@@ -4,7 +4,8 @@ def read_input() -> list[str]:
         data = f.readlines()
     return data
 
-def simple_multiply(line:str) -> int:  
+
+def simple_multiply(line: str) -> int:
     print(f"line: {line}")
     simple_multiply = 0
     samples = line.split("mul(")
@@ -21,6 +22,7 @@ def simple_multiply(line:str) -> int:
         simple_multiply += left * right
     return simple_multiply
 
+
 def more_complex_processing(line: str) -> str:
     acc = ""
     samples = line.split("don't()")
@@ -31,7 +33,8 @@ def more_complex_processing(line: str) -> str:
         acc = acc + "".join(do_samples[1:])
     return acc
 
-def complex_processing(line:str, decision: str, acc:str = ""):
+
+def complex_processing(line: str, decision: str, acc: str = ""):
     print(f"line: {line}; decision: {decision}; acc: {acc}")
     if decision in line:
         left, right = line.split(decision, 1)
@@ -44,6 +47,7 @@ def complex_processing(line:str, decision: str, acc:str = ""):
     else:
         return acc
 
+
 def main():
     lines = read_input()
     line = "".join(lines)
@@ -52,6 +56,7 @@ def main():
     line = more_complex_processing(line)
     result = simple_multiply(line)
     print(f"complex_processing: {result}")
+
 
 if __name__ == "__main__":
     main()
